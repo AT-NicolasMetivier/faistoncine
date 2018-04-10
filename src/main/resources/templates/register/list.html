@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<!-- <html xmlns:th="http://www.thymeleaf.org/" th:replace="~{fragments/navbar :: navbar (~{::body})}"> -->
+<title>Formulaire d'inscription</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"  type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+<!-- <script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script> -->
+</head>
+<body>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<h1>Utilisateurs</h1>
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Pseudo</th>
+								<th>Nom</th>
+								<th>Pr&eacute;nom</th>
+								<th>Sexe</th>
+								<th>Date de Naissance</th>
+								<th>Age</th>
+								<th>Pays</th>
+								<th>T&eacute;l&eacute;phone</th>
+								<th>Langues parl&eacute;es</th>
+								<th>E-mail</th>
+								<th>Mot de passe</th>
+								<th>Travail</th>
+								<th>Premium</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="register : ${registerlist}">
+								<td th:text="${register.id}"></td>
+								<td th:text="${register.pseudo}"></td>
+								<td th:text="${register.lastname}"></td>
+								<td th:text="${register.firstname}"></td>
+								<td th:text="${register.sex}"></td>
+								<td th:text="${register.birthdate}"></td>
+								<td th:text="${register.age}"></td>
+								<td th:text="${register.country}"></td>
+								<td th:text="${register.phone}"></td>
+								<td th:text="${register.spokenlanguages}"></td>
+								<td th:text="${register.email}"></td>
+								<td th:text="${register.password}"></td>
+								<td th:text="${register.job}"></td>
+								<td th:text="${register.premium}"></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+	</div>
+	
+	<a href="../home" > <input  class="btnhome" type="reset" value="Retour" /></a>
+			<!-- <div th:replace="~{fragments/footer :: footer (~{::body})}"></div> -->
+</body>
+</html>

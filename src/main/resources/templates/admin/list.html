@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragments/navbar :: navbar (~{::body})}">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Admin Control Panel</title>
+
+<body>
+<h1>Forbidden Words</h1>
+	<div class="container">
+		<div class="page-header" id="banner">
+		<div class="row">
+				<div class="col-lg-6 col-md-7 col-sm-6">
+					<h1>Add a forbidden word</h1>
+					<form class="form-horizontal" th:action="@{/forbiddenWord}"
+						method="post" enctype="multipart/form-data">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">New forbidden word</label>
+								<div class="col-lg-9">
+									<input class="form-control" name="forbiddenword" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Forbidden word type</label>
+								<div class="col-lg-9">
+								<form>
+									<div>
+									<div>
+										<input type="radio" id="withoutderivate" name="ForbiddenWordType" value="ForbiddenWordType1" checked>
+										<label for="withoutderivate">Word like = "moron" with out derivate </label> 
+										</div>
+										<div>
+										<input type="radio" id="withderivate" name="ForbiddenWordType" value="ForbiddenWordType2" checked>
+										<label for="withderivate">Word like = "**fuck**" with derivate </label> 
+										</div>
+									</div> 
+									<div>
+									<button type="submit"> Add the new forbidden word</button>
+									</div>
+									
+								</form>  
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>Words</th>
+								<th>Words type</th> <!-- Le niveau de gravité du mot  -->
+								<th>id word</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="forbiddenWord : ${ForbiddenWordList}">
+								<td th:text="${forbiddenWord.word}"></td>
+								<td th:text="${forbiddenWord.type}"></td>
+								<td th:text="${forbiddenWord.id}"></td>
+								<td><a th:href="@{/forbiddenWord/{id}(id=${forbiddenWord.id})}">view</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div th:replace="~{fragments/footer :: footer (~{::body})}"></div>
+</body>
+
+</head>
+</html>

@@ -1,0 +1,24 @@
+form#form-search-0 {
+	display: none;
+	width: 275px;
+}
+form#form-search-0 > * {
+	display: inline-block;
+	vertical-align: top;
+}
+
+form#form-login-0 {
+	display: block;
+	width: 200px;
+	}
+form#form-login-0 table{
+	width: 100%;
+}
+
+form#form-login-0 table a.nav-link{
+	color: rgba(200,200,200,1);
+}
+
+form#form-login-0 table a.nav-link:hover{
+	color: rgba(255,255,255,1);
+}

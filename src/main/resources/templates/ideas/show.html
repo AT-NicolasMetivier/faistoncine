@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<head>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragments/navbar :: navbar (~{::body})}">
+</head>
+<body>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<h1>Idea</h1>
+					<span>Author : </span><a href = "#"><span th:text="${idea.auteur}"></span></a>
+					<br/>
+					<span>Idea : </span><span th:text="${idea.idea}"></span>
+					<br/>
+					<span>Tags : </span><span th:each="tag : ${idea.tag}"><a href = "#"><span th:text="${tag}"></span></a><span> </span></span>
+					<br/>
+					<span>Type : </span><a href = "#"><span th:text="${idea.type}"></span></a>
+					<br/>
+					<span>Tone : </span><a href = "#"><span th:text="${idea.ton}"/></span></a>
+					<br/>
+					<span>Language : </span><a href = "#"><span th:text="${idea.langue}"></span></a>
+					<br/>
+					<span>Date : </span><span th:text="${idea.date}"/></span>
+					<div class="form-group" id="editbutton" style="display: visible;">
+						<div class="col-lg-12 col-lg-offset-3">
+							<a th:href="@{/ideas/edit/{id}(id=${idea.id})}">edit</a>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-12 col-lg-offset-3">
+							<a th:href="@{/ideas}">return</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="~{fragments/footer :: footer (~{::body})}"></div>
+</body>
+</html>

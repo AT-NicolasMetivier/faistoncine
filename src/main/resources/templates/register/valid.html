@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<!-- <html xmlns:th="http://www.thymeleaf.org/" th:replace="~{fragments/navbar :: navbar (~{::body})}"> -->
+<title>Formulaire d'inscription</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"  type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+<!-- <script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script> -->
+<script type="text/javascript">
+	function Redirect() { 
+		document.location.href="../home"};
+	</script>
+</head>
+
+<body onLoad="setTimeout('Redirect()', 6666)">
+	<h1 class="register">Confirmation de votre inscription</h1>
+		<h2 class ="register" th:text="${'Bienvenue ' + register.pseudo}"></h2>
+
+
+		<a href="/register/list" > <input  class="btnval" type="submit" value="Liste" /></a>
+		<a href="../home"> <input class="btnannal" type="reset"
+		value="Retour" /></a>
+
+		<!-- <div th:replace="~{fragments/footer :: footer (~{::body})}"></div> -->
+	</body>
+</html>

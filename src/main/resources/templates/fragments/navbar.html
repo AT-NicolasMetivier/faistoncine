@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+<html th:fragment="navbar (template)">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/homeStyle.css}" />
+<link rel="stylesheet" th:href="@{/css/navbar.css}" />
+
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" th:href="@{/home}">FaisTonCiné</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsExampleDefault"
+			aria-controls="navbarsExampleDefault" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/home}">Home <span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/ideas}">Idea</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/scenarii}">Scenarii</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/persona}">Persona</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/comments}">Comments</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/messages}">Messages</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+
+			</ul>
+			<form id="form-search-0" class="form-search">
+				<table>
+					<tbody>
+						<tr>
+							<td><input class="form-control mr-sm-2" type="text"
+								placeholder="Search" aria-label="Search"></td>
+							<td>
+								<button class="btn btn-outline-success my-2 my-sm-0"
+									type="submit">Search</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+
+			<form id="form-login-0" class="form-login">
+				<table>
+					<tbody>
+						<tr>
+							<td>
+							<!-- 
+							<form th:action="@{/logout}" method="post" th:if="${#authorization.expression('isAuthenticated()')}">
+									<input type="submit" value="Log Out" /> 
+								</form>  -->
+								<a class="nav-link" th:href="@{/login}"
+								th:if="${#authorization.expression('isAuthenticated()')==false}">Log
+									in</a></td>
+							<td><a class="nav-link" id="register" th:href="@{/register}" th:if="${#authorization.expression('isAuthenticated()')==false}">Register</a>
+								<a class="nav-link" id="register" th:href="@{/user}" th:if="${#authorization.expression('isAuthenticated()')}"sec:authentication="name"></a>
+								</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+
+
+
+
+
+		</div>
+	</nav>
+
+
+
+
+</body>
+</html>
